@@ -1,6 +1,5 @@
 <template>
     <main id="app" class="container text-center py-3">
-      <h1>Citas médicas</h1>
       <form @submit.prevent="agregarCita" class="formulario-citas">
         <div class="form-row">
           <div class="form-group">
@@ -29,7 +28,14 @@
             <input type="text" v-model="motivo" required>
           </div>
         </div>
-        <button class="btn" type="submit" :disabled="!formularioCompleto">Agregar</button>
+        <div class="py-3">
+        <button
+            type="submit"
+            class="btn btn-dark my-3"
+            :disabled="!formularioCompleto"
+            >Agregar
+          </button>
+        </div>
       </form>
       <p v-if="citas.length === 0">Aún no hay consultas registradas</p>
     </main>
@@ -125,30 +131,6 @@
   border-radius: 0.25rem;
 }
 
-.btn {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-  justify-content: center;
-  align-items: center;
-
-}
-
-button[type="submit"] {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.25rem;
-  background-color: #333;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
- 
-  
-}
-
-button[type="submit"]:disabled {
-  background-color: #aaa;
-}
 
 .rojo {
   color: red;

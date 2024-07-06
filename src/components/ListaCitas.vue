@@ -1,19 +1,21 @@
 <template>
-  <div>
+  <div class="lista-card">
     <div v-for="(cita, index) in citas" :key="index" class="cita-card" :class="cita.gravedad.toLowerCase()">
       <CitaCard :cita="cita" @eliminar="eliminarCita(index)" />
     </div>
-    <p v-if="citas.length === 0">Aún no hay citas registradas.</p>
+    <p id="warning" v-if="citas.length === 0">Aún no hay citas registradas.</p>
   </div>
 </template>
 
 <script>
 import CitaCard from './CitaCard.vue';
 
+
 export default {
   components: {
-    CitaCard
-  },
+    CitaCard,
+    
+},
   props: {
     citas: {
       type: Array,
@@ -32,16 +34,35 @@ export default {
 
 <style scoped>
 .baja {
-  background-color: lightgreen;
+  background-color: #aeff2f;
 }
+
 .media {
-  background-color: lightyellow;
+  background-color: #ffff00;
 }
+
 .alta {
-  background-color: lightcoral;
+  background-color: #fe0100;
+  color: white;
 }
+#warning{color: red;}
+
 .cita-card {
-  padding: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  
 }
+.lista-card{display: flex;
+  flex-direction: row ;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+
+  
+  }
 </style>
